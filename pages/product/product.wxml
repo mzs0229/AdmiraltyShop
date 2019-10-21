@@ -1,0 +1,35 @@
+<view class="container detail-container">
+    <view class="detail-header-box">
+        <view class="fixed-btns-box" bindtap="onCartTap">
+            <view class="fixed-cart">
+                <image class="" src="../../imgs/icon/cart@top.png"></image>
+                <view wx:if="{{cartTotalCounts>0}}">{{cartTotalCounts}}</view>
+            </view>
+        </view>
+        <view class="detail-topic-img">
+            <image class="" src="{{product.main_img_url}}" mode="aspectFill"></image>
+        </view>
+        <view class="cart-box">
+            <view class="product-counts">
+                <picker class="{{product.stock==0?'disable':''}}" range="{{countsArr}}" value="1" bindchange="bindPickerChange">
+                    <view>
+                        <text class="counts-tips">数量</text>
+                        <text class="counts-data">{{productCount}}</text>
+                        <image class="counts-icon" src="../../imgs/icon/arrow@down.png"></image>
+                    </view>
+                </picker>
+            </view>
+            <view class="middle-border"></view>
+            <view class="add-cart-btn {{product.stock==0?'disabled':''}}" bindtap="onAddingToCartTap">
+                <text>加入购物车</text>
+                <image class="cart-icon" src="../../imgs/icon/cart.png"></image>
+            </view>
+        </view>
+        <view class="basic-info-box">
+            <view class="stock" wx:if="{{product.stock>0}}">有货</view>
+            <view class="stock no" wx:else>缺货</view>
+            <view class="name">{{product.name}}</view>
+            <view class="price">￥{{product.price}}</view>
+        </view>
+    </view>
+</view>
