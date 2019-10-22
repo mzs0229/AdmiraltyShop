@@ -8,7 +8,7 @@ Page({
   },
 
   onLoad:function(options){
-    console.log(options)
+    
     var id = options.id
     var name = options.name
     this.data.id = id
@@ -19,7 +19,7 @@ Page({
 
   },
 
-  onReady: function () {
+  onReady:function() {
     wx.setNavigationBarTitle({
       title: this.data.themeInfo.description
     });
