@@ -1,7 +1,7 @@
 import { Product } from 'product-model.js';
-// import { Cart } from '../cart/cart-model.js';
+import { Cart } from '../cart/cart-model.js';
 var product = new Product();
-// var cart = new Cart();
+var cart = new Cart();
 
 Page({
 
@@ -27,11 +27,11 @@ Page({
   _loadData:function(){
     product.getDetailInfo(this.data.id,(data)=>{
       this.setData({
-        // cartTotalCounts:cart.getCartTotalCounts(),
+        cartTotalCounts:cart.getCartTotalCounts(),
         product:data
        
       })
-      console.log(data)
+      
     });
   },
 
@@ -60,37 +60,36 @@ Page({
     })
   },
 
-  // onAddingToCartTap:function(event){
-  //   this.addToCart();
-  //   var counts = this.data.cartTotalCounts + this.data.productCount;
-  //   this.setData({
-  //     cartTotalCounts:cart.getCartTotalCounts()
-  //   })
-  // },
+  onAddingToCartTap:function(event){
+    this.addToCart();
+    var counts = this.data.cartTotalCounts + this.data.productCount;
+    this.setData({
+      cartTotalCounts:cart.getCartTotalCounts()
+    })
+  },
 
-  // addToCart:function(){
-  //   var tempObj = {};
-  //   var keys = ['id','name','main_img_url','price'];
+  addToCart:function(){
+    var tempObj = {};
+    var keys = ['id','name','main_img_url','price'];
 
-  //   for(var key in this.data.product){
-  //     console.log(key);
-  //     console.log(this.data.product);
-  //     if(keys.indexOf(key)>=0){
-  //       console.log(keys.indexOf(key));
-  //       tempObj[key] = this.data.product[key];
+    for(var key in this.data.product){
+   
+      if(keys.indexOf(key)>=0){
+       
+        tempObj[key] = this.data.product[key];
   
-  //     }
-  //   }
+      }
+    }
 
-  //   cart.add(tempObj,this.data.productCount);
-  // },
+    cart.add(tempObj,this.data.productCount);
+  },
 
-  // onCartTap:function(event){
-  //   wx.switchTab({
-  //     url: '/pages/cart/cart'
-  //   });
+  onCartTap:function(event){
+    wx.switchTab({
+      url: '/pages/cart/cart'
+    });
       
-  // }
+  }
 
   
 })
