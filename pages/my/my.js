@@ -1,66 +1,31 @@
-// pages/my/my.js
+// import { Address } from '../../utils/address.js';
+// import { Order } from '../order/order-model.js';
+import { My } from '../my/my-model.js';
+
+// var address = new Address();
+// var order = new Order();
+var my = new My();
+
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
+  data:{
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad:function(options){
+    this._loadData();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  _loadData:function(){
+    my.getUserInfo((data)=>{
+      this.setData({
+        userInfo:data
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  onGotUserInfo:function(e){
+    console.log(e.detail.errMsg);
 
   }
 })
