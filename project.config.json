@@ -48,6 +48,10 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
@@ -56,6 +60,19 @@
 					"name": "Home",
 					"pathName": "pages/home/home",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/pay-result/pay-result",
+					"pathName": "pages/pay-result/pay-result",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
 					"scene": null
 				}
 			]
